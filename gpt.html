@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArabyGPT | عرض كامل</title>
+    <style>
+        /* إعدادات الصفحة الأساسية */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* لمنع التمرير الخارجي */
+            background-color: #f4f4f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* شريط علوي بسيط */
+        .navbar {
+            height: 60px;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.2rem;
+        }
+
+        /* حاوية الـ Iframe */
+        .webview-container {
+            width: 100%;
+            height: calc(100vh - 60px); /* ملء الشاشة مع استثناء الهيدر */
+            position: relative;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* رسالة توضيحية تظهر في الخلفية */
+        .loading-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            text-align: center;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">ArabyGPT Viewer</div>
+        <div class="status">
+            <span id="status-text" style="font-size: 0.8rem; color: #4CAF50;">● متصل</span>
+        </div>
+    </nav>
+
+    <div class="webview-container">
+        <div class="loading-bg">
+            <p>جاري تحميل الموقع...</p>
+            <small>إذا لم يظهر الموقع، فقد يكون محميًا من التضمين المباشر.</small>
+        </div>
+        
+        <iframe 
+            src="https://www.arabygpt.araby.ai/" 
+            title="ArabyGPT"
+            allow="camera; microphone; clipboard-read; clipboard-write; fullscreen"
+            sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+            loading="lazy">
+        </iframe>
+    </div>
+
+</body>
+</html>
